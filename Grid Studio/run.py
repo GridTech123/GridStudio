@@ -30,12 +30,11 @@ elif path[pathLen - 3:pathLen] == 'gs2':
 	pickle_out.close()
 	os.startfile('Compiler.py')
 
-elif path[pathLen - 2:pathLen] == 'py':
-	os.chdir('python')
-	pickle_out = open('file_path.gsrf', 'w')
-	pickle.dump(path, pickle_out)
-	pickle_out.close()
-	os.startfile('Compiler.py')
+elif path[pathLen - 2:pathLen] == 'py' or path[pathLen - 3:pathLen] == 'pyc' or path[pathLen - 3:pathLen] == 'pyw':
+	os.startfile(path)
+
+elif path[pathLen - 4:pathLen] == 'html' or path[pathLen - 3:pathLen] == 'htm':
+	os.startfile(path)
 
 else:
     print 'unknown file could not run'
